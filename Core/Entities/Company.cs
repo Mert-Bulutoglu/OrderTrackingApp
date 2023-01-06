@@ -10,13 +10,10 @@ namespace Core.Entities
     {
         public string CompanyName { get; set; }
         public bool IsVerified  { get; set; } = false;
-        public DateTime permissionStartDate { get; set; }
+        [JsonConverter(typeof(TimeSpanConverter))]
+        public DateTime permissionStartDate { get; set; } 
+        [JsonConverter(typeof(TimeSpanConverter))]
         public DateTime permissionEndDate { get; set; }
-        
-        [JsonIgnore]
-        public List<Product> Products { get; set; }
-        [JsonIgnore]
-        public List<Order> Orders { get; set; }
-
+ 
     }
 }

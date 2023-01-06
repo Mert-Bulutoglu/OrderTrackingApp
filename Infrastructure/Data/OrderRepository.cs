@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace Infrastructure.Data
 {
@@ -18,8 +20,10 @@ namespace Infrastructure.Data
 
         public void Add(Order order)
         {
+            // var include = _context.Orders.Include(x => x.Product).FirstOrDefaultAsync();
             _context.Add(order);
         }
+
 
         public async Task<Order> GerOrderByIdAsnyc(int id)
         {
@@ -29,6 +33,22 @@ namespace Infrastructure.Data
         public async Task<IReadOnlyList<Order>> GetOrdersAsync()
         {
             return await _context.Orders.ToListAsync();
+        }
+
+        public IQueryable<Order> Include(params Expression<Func<Order, object>>[] includes)
+        {
+            IIncludableQueryable<Order, object> query = null;
+
+            if (includes.Length > 0)
+            {
+                query = _context.Orders.Include(includes[0]);
+            }
+            for (int queryIndex = 1; queryIndex < includes.Length; ++queryIndex)
+            {
+                query = query.Include(includes[queryIndex]);
+            }
+
+            return query == null ? _context.Orders : (IQueryable<Order>)query;
         }
 
         public async Task<bool> SaveChangesAsync()
