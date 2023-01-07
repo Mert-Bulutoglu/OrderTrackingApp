@@ -1,5 +1,5 @@
 # OrderTrackingApp
--TABLO AÇIKLAMLARI-
+-TABLO AÇIKLAMALARI-
 PRODUCT TABLOSU
 
 ![image](https://user-images.githubusercontent.com/107191110/211139822-cd0fa545-d67b-4fd9-9f5b-9e84b1944050.png)
@@ -29,6 +29,26 @@ Company tablosu many to one özelliği taşıdığından bu kısımda bağlantı
 
 Code first yaklaşım gösterimi ;
 
-![image](https://user-images.githubusercontent.com/107191110/211140125-a6b58a4a-a8e7-4fbb-ba6f-0d89507577a7.png)
+![image](https://user-images.githubusercontent.com/107191110/211140138-3bd3ce26-8e45-4d35-9f34-a6f7f2013ec1.png)
+
+KULLANILAN TEKNOLOJİLER
+.NET Core 6 API
+MSSQL
+Swagger UI
+Entity Framework Code First
+Repository Design Pattern
+
+YAPILAN SERVİSLER
+
+FİRMA SERVİSLERİ
+
+![image](https://user-images.githubusercontent.com/107191110/211140252-5cdd4757-01f9-44d0-8aac-35451525c1aa.png)
+
+FİRMA EKLEME
+
+![image](https://user-images.githubusercontent.com/107191110/211140266-ebc3bef2-b432-4e75-b459-7396abeaabbf.png)    --- >    ![image](https://user-images.githubusercontent.com/107191110/211140275-4ffe5ed2-f33e-4a87-bbdb-cd3d8e207542.png)
+
+
+
 
 
